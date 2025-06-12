@@ -9,7 +9,7 @@ import lombok.Builder;
 @Builder
 public record RegistrationRequest(
         @NotEmpty(message = "First name is required")
-        @NotBlank
+        @NotBlank(message = "First name must not be blank")
         String firstName,
         @NotEmpty(message = "Last name is required")
         @NotBlank
