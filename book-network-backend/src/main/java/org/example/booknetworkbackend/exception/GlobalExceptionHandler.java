@@ -1,7 +1,6 @@
 package org.example.booknetworkbackend.exception;
 
 import jakarta.mail.MessagingException;
-import org.example.booknetworkbackend.book.exception.OperationNotPermittedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
