@@ -1,6 +1,7 @@
 package org.example.booknetworkbackend.exception;
 
 import jakarta.mail.MessagingException;
+import org.example.booknetworkbackend.book.exception.OperationNotPermittedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -78,6 +79,17 @@ public class GlobalExceptionHandler {
                 .body(
                         ExceptionResponse.builder()
                                 .validationErrors(errors)
+                                .build()
+                );
+    }
+
+
+    @ExceptionHandler(OperationNotPermittedException.class)
+    public ResponseEntity<ExceptionResponse> handle(OperationNotPermittedException exception){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(
+                        ExceptionResponse.builder()
+                                .error(exception.getMessage())
                                 .build()
                 );
     }

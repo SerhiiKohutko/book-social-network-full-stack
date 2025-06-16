@@ -28,6 +28,9 @@ public class Book extends BaseEntity {
     private boolean archived;
     private boolean shareable;
 
+    private boolean returned;
+    private boolean returnApproved;
+
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
